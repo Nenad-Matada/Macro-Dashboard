@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Macro Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>🌍 Global Macro Dashboard</h1>
+        <p>Understanding the economy through data and market impact</p>
+    </div>
+
+    <div class="summary-box">
+        <h2> Today's Macro Summary</h2>
+        <p>{{ summary }}</p>
+    </div>
+
+
+    <!-- INDICATORS GRID -->
+    <div class="grid">
+        {% for key, item in data.items() %}
+        <div class="card">
+            <h3>{{ key.replace("_", " ").title() }}</h3>
+            <div class="value">{{ item.value }}</div>
+            <p class="explanation">{{ item.explanation }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+
+    <!-- REGIME -->
+    <div class="regime-box">
+        <h2>🧠 Current Macro Regime</h2>
+        <p>{{ regime }}</p>
+    </div>
+
+
+    <!-- CONFIDENCE SCORE -->
+    <div class="confidence-box">
+        <h2>📊 Confidence Score</h2>
+        <div class="confidence-number">{{ confidence }}%</div>
+        <p>{{ confidence_text }}</p>
+    </div>
+
+
+    <!-- MARKET INSIGHTS -->
+    <div class="insights">
+        <h2>📈 What This Means for Markets</h2>
+
+        {% for asset, view in insights.items() %}
+        <div class="insight-row">
+            <span class="asset">{{ asset }}</span>
+            <span class="view">{{ view }}</span>
+        </div>
+        {% endfor %}
+    </div>
+
+
+    <!-- CHARTS -->
+    <div class="charts">
+        <div class="chart-box">
+            <h2>📊 Interest Rate Trend</h2>
+            {{ rate_chart|safe }}
+        </div>
+
+        <div class="chart-box">
+            <h2>💱 Currency Trend</h2>
+            {{ fx_chart|safe }}
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
