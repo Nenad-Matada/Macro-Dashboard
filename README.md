@@ -1,4 +1,4 @@
-<img width="1919" height="907" alt="Screenshot 2026-03-28 205209" src="https://github.com/user-attachments/assets/eb2a5081-3c0d-40c0-a413-38c942b33b50" /># 🌍 Global Macro Dashboard
+🌍 Global Macro Dashboard
 
 A **financial literacy-focused macroeconomic dashboard** that helps users understand how key economic indicators impact financial markets.
 
